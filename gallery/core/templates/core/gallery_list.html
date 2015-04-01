@@ -1,0 +1,13 @@
+<html>
+<body>
+	<h1>Gallery</h1>
+	
+	{% if gallery %}
+		{% for photo in gallery %}
+			<p>{{ photo.photo }}</p>
+			<p>{{ photo.description }}</p>
+		{% endfor %}
+	{% endif %}
+
+</body>
+</html>
