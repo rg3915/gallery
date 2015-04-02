@@ -4,7 +4,7 @@
 	
 	{% if gallery %}
 		{% for photo in gallery %}
-			<p>{{ photo.photo }}</p>
+			<p><img src="{{ photo.photo.url }}" width="300px"></p>
 			<p>{{ photo.description }}</p>
 		{% endfor %}
 	{% endif %}
