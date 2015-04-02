@@ -3,4 +3,4 @@ Photo Gallery
 
 ### Screenshot
 
-[!alt text](gallery.png)
+![alt text](gallery.png)
