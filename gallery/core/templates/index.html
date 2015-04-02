@@ -1,10 +1,23 @@
-<html>
-<head>
+{% extends "base.html" %}
+
+{% block css %}
+  <style type="text/css">
+    body {
+      padding-top: 50px;
+      background-image: url('{{ STATIC_URL }}img/giro-d-italia-bike-race.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+    .jumbotron {
+	  background: rgba(255,255,255, 0.25); 
+	}
+  </style>
+{% endblock css %}
+
+{% block content %}
 	
-</head>
-<body>
-	<h1>
-		<p><a href="{% url 'gallery_list' %}">Gallery</a></p>
-	</h1>
-</body>
-</html>
+	<div class="container jumbotron col-sm-4">
+		<h1	><a href="{% url 'gallery_list' %}">Gallery</a></h1>
+	</div>
+
+{% endblock content %}

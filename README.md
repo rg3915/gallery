@@ -1,6 +1,3 @@
-# gallery
-Photo Gallery
-
-### Screenshot
+# Screenshot
 
 ![alt text](gallery.png)
