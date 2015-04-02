@@ -1,3 +1,3 @@
 # Screenshot
 
-![alt text](gallery.png)
+![alt text](gallery_.png)
