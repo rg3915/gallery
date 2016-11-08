@@ -1,9 +1,9 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
 
 
 class Gallery(models.Model):
-    description = models.CharField(_(u'descrição'), max_length=20)
+    description = models.CharField(
+        'descrição', max_length=20, null=True, blank=True)
     photo = models.ImageField(upload_to='media')
 
     class Meta:
