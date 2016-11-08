@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block css %}
   <style type="text/css">
     body {
       padding-top: 50px;
-      background-image: url('{{ STATIC_URL }}img/giro-d-italia-bike-race.jpg');
+      background-image: url('{% static "img/giro-d-italia-bike-race.jpg" %}');
       background-repeat: no-repeat;
       background-size: 100%;
     }
@@ -17,7 +18,7 @@
 {% block content %}
 	
 	<div class="container jumbotron col-sm-4">
-		<h1	><a href="{% url 'gallery_list' %}">Gallery</a></h1>
+		<h1	><a href="{% url 'core:gallery_list' %}">Gallery</a></h1>
 	</div>
 
 {% endblock content %}
