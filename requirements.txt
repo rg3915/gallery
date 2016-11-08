@@ -5,3 +5,5 @@ Pillow==3.4.2
 python-decouple==3.0
 static3==0.7.0
 Unipath==1.1
+django-widget-tweaks
+django-extensions
