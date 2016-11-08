@@ -1,4 +1,7 @@
-Django==1.7.7
-Pillow==2.7.0
+dj-database-url==0.4.1
+dj-static==0.0.6
+Django==1.10.3
+Pillow==3.4.2
+python-decouple==3.0
+static3==0.7.0
 Unipath==1.1
-dj-database-url==0.3.0
