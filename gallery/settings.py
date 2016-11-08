@@ -1,16 +1,21 @@
-import dj_database_url
-from unipath import Path
-BASE_DIR = Path(__file__).parent
+import os
+from decouple import config, Csv
+from dj_database_url import parse as dburl
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6pxr*w#0h0$ts-bywkshpf-(sndbr^wno#ldz+)5^*%j4p@4a)'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
 
 # Application definition
@@ -43,9 +48,9 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///' + BASE_DIR.child('db.sqlite3'))
+    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
 }
 
 # Internationalization
@@ -65,12 +70,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-MEDIA_ROOT = BASE_DIR.child('media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'core')
 
-STATIC_ROOT = BASE_DIR.child('staticfiles')
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# STATICFILES_DIRS = (
-#     BASE_DIR.child('static'),
-# )
+LOGIN_URL = '/admin/login/'
