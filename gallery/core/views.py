@@ -19,4 +19,4 @@ class GalleryCreate(CreateView):
     template_name = 'core/gallery_form.html'
     model = Gallery
     form_class = GalleryForm
-    success_url = r('gallery_list')
+    success_url = r('core:gallery_list')
