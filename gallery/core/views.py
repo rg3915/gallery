@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView
-from django.core.urlresolvers import reverse_lazy as r
+from django.urls import reverse_lazy as r
 from .models import Gallery
 from .forms import GalleryForm
 
