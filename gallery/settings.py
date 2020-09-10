@@ -1,5 +1,6 @@
 import os
-from decouple import config, Csv
+
+from decouple import Csv, config
 from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)

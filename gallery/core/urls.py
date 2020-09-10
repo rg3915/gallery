@@ -1,6 +1,6 @@
 from django.urls import path
-from gallery.core import views as c
 
+from gallery.core import views as c
 
 app_name = 'core'
 

@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView
 from django.urls import reverse_lazy as r
-from .models import Gallery
+from django.views.generic import CreateView, ListView
+
 from .forms import GalleryForm
+from .models import Gallery
 
 
 def home(request):
