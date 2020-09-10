@@ -13,11 +13,21 @@ class TimeStampedModel(models.Model):
 
 class Gallery(TimeStampedModel):
     description = models.CharField(
-        'descrição', max_length=20, null=True, blank=True)
-    photo = models.ImageField(upload_to='media')
+        'descrição',
+        max_length=20,
+        null=True,
+        blank=True
+    )
+    photo = models.ImageField('foto', upload_to='media', null=True, blank=True)
+    file = models.FileField(
+        'arquivo',
+        upload_to='media',
+        null=True,
+        blank=True
+    )
 
     class Meta:
-        ordering = ['-created']
+        ordering = ('-created',)
         verbose_name = 'foto'
         verbose_name_plural = 'fotos'
 

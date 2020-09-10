@@ -9,9 +9,21 @@
         </div>
         {% for photo in gallery %}
           <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="#">
-              <img class="img-responsive" style="height:160px" src="{{ photo.photo.url }}">
-            </a>
+
+            {% if photo.photo %}
+              <a class="thumbnail" href="">
+                <img class="img-responsive" style="height:160px" src="{{ photo.photo.url }}">
+              </a>
+              <a href="{% url 'core:download' photo.pk %}" target="_blank">{{ photo.pk }} - {{ photo.photo.name }}</a>
+            {% endif %}
+
+            {% if photo.file %}
+              <a class="thumbnail" href="">
+                <img class="img-responsive" style="height:160px" src="{{ photo.file.url }}">
+              </a>
+              <a href="{% url 'core:download' photo.pk %}" target="_blank">{{ photo.pk }} - {{ photo.file.name }}</a>
+            {% endif %}
+
           </div>
         {% endfor %}
       </div>
