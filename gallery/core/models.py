@@ -1,3 +1,5 @@
+from mimetypes import guess_type
+
 from django.db import models
 
 
@@ -33,3 +35,12 @@ class Gallery(TimeStampedModel):
 
     def __str__(self):
         return self.description
+
+    @property
+    def get_type(self):
+        if self.photo:
+            _mimetypes, _ = guess_type(self.photo.name)
+            return _mimetypes
+        if self.file:
+            _mimetypes, _ = guess_type(self.file.name)
+            return _mimetypes

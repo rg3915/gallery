@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
   <div class="container">
@@ -7,21 +8,29 @@
         <div class="col-lg-12">
           <h1 class="page-header">Gallery</h1>
         </div>
-        {% for photo in gallery %}
+        {% for object in gallery %}
           <div class="col-lg-3 col-md-4 col-xs-6 thumb">
 
-            {% if photo.photo %}
-              <a class="thumbnail" href="">
-                <img class="img-responsive" style="height:160px" src="{{ photo.photo.url }}">
+            {% if object.photo %}
+              {{ object.get_type }}
+              <a class="thumbnail" href="{% url 'core:gallery_detail' object.pk %}">
+                <img class="img-responsive thumb-size" src="{{ object.photo.url }}">
               </a>
-              <a href="{% url 'core:download' photo.pk %}" target="_blank">{{ photo.pk }} - {{ photo.photo.name }}</a>
+              <a href="{% url 'core:download' object.pk %}" target="_blank">{{ object.pk }} - {{ object.photo.name }}</a>
             {% endif %}
 
-            {% if photo.file %}
-              <a class="thumbnail" href="">
-                <img class="img-responsive" style="height:160px" src="{{ photo.file.url }}">
-              </a>
-              <a href="{% url 'core:download' photo.pk %}" target="_blank">{{ photo.pk }} - {{ photo.file.name }}</a>
+            {% if object.file %}
+              {{ object.get_type }}
+              {% if object.get_type == 'application/pdf' %}
+                <a class="thumbnail" href="{% url 'core:gallery_detail' object.pk %}">
+                  <img class="img-responsive thumb-size" src="{% static 'img/pdf-icon.jpg' %}">
+                </a>
+              {% else %}
+                <a class="thumbnail" href="{% url 'core:gallery_detail' object.pk %}">
+                  <img class="img-responsive thumb-size" src="{{ object.file.url }}">
+                </a>
+              {% endif %}
+              <a href="{% url 'core:download' object.pk %}" target="_blank">{{ object.pk }} - {{ object.file.name }}</a>
             {% endif %}
 
           </div>

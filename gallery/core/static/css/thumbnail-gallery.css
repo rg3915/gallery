@@ -12,6 +12,14 @@ body {
     margin-bottom: 30px;
 }
 
+.thumb-size {
+    height: 160px;
+}
+
+.thumb-bigsize {
+    height: 300px;
+}
+
 footer {
     margin: 50px 0;
 }
