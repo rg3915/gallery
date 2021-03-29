@@ -4,7 +4,7 @@ Exemplo de projeto Django para upload e download de arquivos.
 
 ## Este projeto foi feito com:
 
-* [Django 2.2.16](https://www.djangoproject.com/)
+* [Django 3.1.7](https://www.djangoproject.com/)
 
 ## Como rodar o projeto?
 
