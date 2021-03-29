@@ -1,7 +1,7 @@
 from django.http import FileResponse, Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy as r
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, DetailView, ListView
 
 from .forms import GalleryForm
 from .models import Gallery
@@ -15,6 +15,11 @@ class GalleryList(ListView):
     template_name = 'core/gallery_list.html'
     model = Gallery
     context_object_name = 'gallery'
+
+
+class GalleryDetail(DetailView):
+    template_name = 'core/gallery_detail.html'
+    model = Gallery
 
 
 class GalleryCreate(CreateView):

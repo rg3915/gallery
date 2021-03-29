@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="col-sm-10">
+
+          {% if object.photo %}
+            {{ object.get_type }}
+              <img class="img-responsive thumb-bigsize" src="{{ object.photo.url }}">
+              <a href="{% url 'core:download' object.pk %}" target="_blank">{{ object.pk }} - {{ object.photo.name }}</a>
+          {% endif %}
+
+          {% if object.file %}
+            {{ object.get_type }}
+            {% if object.get_type == 'application/pdf' %}
+              <embed src="{{ object.file.url }}" type="application/pdf" width="100%" height="500px" />
+            {% else %}
+              <img class="img-responsive thumb-bigsize" src="{{ object.file.url }}">
+            {% endif %}
+            <a href="{% url 'core:download' object.pk %}" target="_blank">{{ object.pk }} - {{ object.file.name }}</a>
+          {% endif %}
+
+        </div>
+    </div>
+  </div>
+{% endblock content %}
