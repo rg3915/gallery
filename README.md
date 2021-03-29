@@ -29,3 +29,10 @@ python manage.py migrate
 ![alt text](gallery_index.png)
 
 ![alt text](gallery_.png)
+
+## Links
+
+https://cloudinary.com
+
+https://pypi.org/project/django-cloudinary-storage/
+

@@ -29,12 +29,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # thirty apps
+    'cloudinary_storage',
+    'cloudinary',
     'widget_tweaks',
     'django_extensions',
     'bootstrapform',
     # my apps
     'gallery.core',
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUD_NAME'),
+    'API_KEY': config('API_KEY'),
+    'API_SECRET': config('API_SECRET'),
+}
 
 # https://docs.djangoproject.com/en/3.0/ref/clickjacking/#setting-x-frame-options-for-all-responses
 X_FRAME_OPTIONS = 'SAMEORIGIN'
@@ -120,6 +128,7 @@ DECIMAL_SEPARATOR = ','
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

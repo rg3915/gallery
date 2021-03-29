@@ -11,6 +11,11 @@ CONFIG_STRING = """
 DEBUG=True
 SECRET_KEY=%s
 ALLOWED_HOSTS=127.0.0.1, .localhost
+
+#API_KEY=
+#API_SECRET=
+#CLOUD_NAME=
+
 #DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/NAME
 #DEFAULT_FROM_EMAIL=
 #EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
