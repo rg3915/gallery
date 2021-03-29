@@ -18,6 +18,9 @@
               </a>
               <p>{{ object.description }}</p>
               <a href="{% url 'core:download' object.pk %}" target="_blank">{{ object.get_filename }}</a>
+              <br>
+              <br>
+              <a href="{{ object.photo.url }}" target="_blank">{{ object.get_filename }}</a>
             {% endif %}
 
             {% if object.file %}

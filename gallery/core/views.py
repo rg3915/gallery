@@ -1,4 +1,5 @@
-from django.http import FileResponse, Http404
+import requests
+from django.http import FileResponse, Http404, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy as r
 from django.views.generic import CreateView, DetailView, ListView
@@ -32,15 +33,19 @@ class GalleryCreate(CreateView):
 def download(request, pk):
     obj = Gallery.objects.get(pk=pk)
 
-    file_path = None
+    file_data = None
     if obj.photo:
-        file_path = obj.photo.path
+        # file_data = obj.photo.path
+        file_data = obj.photo.url
     if obj.file:
-        file_path = obj.file.path
+        # file_data = obj.file.path
+        file_data = obj.file.url
 
-    if file_path:
-        # Retorna somente o nome do arquivo.
-        filename = file_path.split('/')[-1]
-        response = FileResponse(open(file_path, 'rb'), as_attachment=True)
+    if file_data:
+        resp = requests.get(file_data)
+        filename = file_data.split('/')[-1]
+        response = HttpResponse(resp.content, content_type='image/jpeg')
+        # Sem extensão do arquivo.
+        response['Content-Disposition'] = f'attachment; filename={filename}'
         return response
     return Http404
