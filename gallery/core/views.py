@@ -1,8 +1,8 @@
+from django.http import FileResponse, Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy as r
 from django.views.generic import CreateView, ListView
-from django.http import FileResponse
-from django.http import Http404
+
 from .forms import GalleryForm
 from .models import Gallery
 
