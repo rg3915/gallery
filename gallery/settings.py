@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'gallery.core',
 ]
 
+# https://docs.djangoproject.com/en/3.0/ref/clickjacking/#setting-x-frame-options-for-all-responses
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 MIDDLEWARE = [

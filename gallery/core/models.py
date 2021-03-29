@@ -20,13 +20,8 @@ class Gallery(TimeStampedModel):
         null=True,
         blank=True
     )
-    photo = models.ImageField('foto', upload_to='media', null=True, blank=True)
-    file = models.FileField(
-        'arquivo',
-        upload_to='media',
-        null=True,
-        blank=True
-    )
+    photo = models.ImageField('foto', upload_to='', null=True, blank=True)
+    file = models.FileField('arquivo', upload_to='', null=True, blank=True)
 
     class Meta:
         ordering = ('-created',)
@@ -34,7 +29,14 @@ class Gallery(TimeStampedModel):
         verbose_name_plural = 'fotos'
 
     def __str__(self):
-        return self.description
+        if self.description:
+            return self.description
+        return str(self.pk)
+
+    @property
+    def get_filename(self):
+        if self.photo or self.file:
+            return self.photo.name or self.file.name
 
     @property
     def get_type(self):

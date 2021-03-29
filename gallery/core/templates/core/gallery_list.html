@@ -16,7 +16,8 @@
               <a class="thumbnail" href="{% url 'core:gallery_detail' object.pk %}">
                 <img class="img-responsive thumb-size" src="{{ object.photo.url }}">
               </a>
-              <a href="{% url 'core:download' object.pk %}" target="_blank">{{ object.pk }} - {{ object.photo.name }}</a>
+              <p>{{ object.description }}</p>
+              <a href="{% url 'core:download' object.pk %}" target="_blank">{{ object.get_filename }}</a>
             {% endif %}
 
             {% if object.file %}
@@ -30,7 +31,8 @@
                   <img class="img-responsive thumb-size" src="{{ object.file.url }}">
                 </a>
               {% endif %}
-              <a href="{% url 'core:download' object.pk %}" target="_blank">{{ object.pk }} - {{ object.file.name }}</a>
+              <p>{{ object.description }}</p>
+              <a href="{% url 'core:download' object.pk %}" target="_blank">{{ object.get_filename }}</a>
             {% endif %}
 
           </div>
