@@ -13,7 +13,7 @@ body {
 }
 
 .thumb-size {
-    height: 160px;
+    height: 160px !important;
 }
 
 .thumb-bigsize {
