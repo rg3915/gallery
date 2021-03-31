@@ -36,3 +36,4 @@ https://cloudinary.com
 
 https://pypi.org/project/django-cloudinary-storage/
 
+https://ccbv.co.uk/projects/Django/3.1/django.views.generic.edit/CreateView/
