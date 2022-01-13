@@ -4,5 +4,5 @@ Django==3.1.13
 django-bootstrap-form==3.4
 django-extensions==3.1.1
 django-widget-tweaks==1.4.8
-Pillow==8.1.2
+Pillow==9.0.0
 python-decouple==3.4
